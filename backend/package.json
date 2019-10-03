@@ -1,0 +1,11 @@
+{
+  "name": "aircnc-backend",
+  "version": "1.0.0",
+  "description": "Aplicação construída no primeiro dia de aulas da OmniStack 9",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme dos Santos",
+  "license": "ISC"
+}
