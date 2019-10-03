@@ -2,6 +2,19 @@ const Spot = require('../models/Spot');
 const User = require('../models/User');
 
 module.exports = {
+
+    async index(req, res) {
+        try {
+            const { tech } = req.query;
+
+            const spot = await Spot.find({ techs: tech });
+
+            return res.status(200).json({ success: spot });
+        } catch (error) {
+            return res.status(500).json({ error: error });
+        }
+    },
+
     async store(req, res) {
         try {
             const { filename } = req.file;
@@ -10,8 +23,8 @@ module.exports = {
 
             const user = await User.findById(user_id);
 
-            if(!user)
-                return res.status(400).json({error: "User not found"});
+            if (!user)
+                return res.status(400).json({ error: "User not found" });
 
 
             const spot = await Spot.create({
@@ -19,7 +32,7 @@ module.exports = {
                 company: company,
                 //Split está separando cada palavra através da virgula e o map está percorrendo o array e tirando os espacos
                 techs: techs.split(',').map(tech => tech.trim()),
-                price:price,
+                price: price,
                 thumbnail: filename
             });
 
