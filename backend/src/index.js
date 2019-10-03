@@ -12,6 +12,7 @@ const app = express();
 */
 //Para entender o corpo com requisições json
 app.use(express.json());
+app.use(routes);
 
 try{
     mongoose.connect('mongodb://'+username+':'+password+'@memepi-shard-00-00-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-01-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-02-w9wrm.gcp.mongodb.net:27017/semana9?ssl=true&replicaSet=memepi-shard-0&authSource=admin&retryWrites=true&w=majority',{
