@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 //CSS
@@ -35,10 +36,14 @@ export default function Dashboard(){
                             backgroundImage: `url(${spot.thumbnail_url})`
                         }}></header>
                         <strong> {spot.company} </strong>
+                        {/* Exemplo de Operador Ternário do PHP, formatando o valor para real */}
                         <span> {spot.price ? `R$ ${spot.price},00/dia` : 'GRATUITO'} </span>
                     </li>
                 ))}
             </ul>
+            <Link to='/new-spot'>
+                <button className="btn">Cadastrar Novo Spot</button>
+            </Link>
         </>
     );
 }
