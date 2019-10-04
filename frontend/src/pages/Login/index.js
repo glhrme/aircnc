@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-export default function Login() {
+export default function Login({ history }) {
 
     //Set email atualiza o valor da variavel
     //Real-time
@@ -16,6 +16,9 @@ export default function Login() {
         const { _id } = response.data;
 
         localStorage.setItem('user', _id);
+
+        //History serve para fazer a navegação
+        history.push('/dashboard');
 
     }
 
