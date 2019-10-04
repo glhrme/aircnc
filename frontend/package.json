@@ -1,0 +1,11 @@
+{
+  "name": "aircnc-frontend",
+  "version": "1.0.0",
+  "description": "Versão front-end com reacts da aplicação AirCnC da Semana OmniStack 9",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme dos Santos",
+  "license": "ISC"
+}
