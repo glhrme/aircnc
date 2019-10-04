@@ -16,6 +16,8 @@ export default function Login({ history }) {
         const { _id } = response.data;
 
         localStorage.setItem('user', _id);
+        //Setando email para exibir na dashboard
+        localStorage.setItem('email', email);
 
         //History serve para fazer a navegação
         history.push('/dashboard');
