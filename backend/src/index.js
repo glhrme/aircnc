@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const {username, password} = require('./config/database.json');
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 
@@ -11,6 +12,7 @@ const app = express();
     req.body = corpo da requisição
 */
 //Para entender o corpo com requisições json
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
