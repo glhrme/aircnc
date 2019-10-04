@@ -16,7 +16,7 @@ routes.post('/session', SessionController.store);
 
 //Spots All
 routes.get('/spots' , SpotController.index);
-routes.post('/spots', upload.single('thumbnail') ,SpotController.store);
+routes.post('/spots', upload.single('thumbnail'), SpotController.store);
 
 //Dashboard
 routes.get('/dashboard', DashboardController.show);

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const {username, password} = require('./config/database.json');
 const routes = require('./routes');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -14,6 +15,7 @@ const app = express();
 //Para entender o corpo com requisições json
 app.use(cors());
 app.use(express.json());
+app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 app.use(routes);
 
 try{
