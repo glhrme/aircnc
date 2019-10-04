@@ -5,9 +5,17 @@ module.exports = {
 
     async index(req, res) {
         try {
-            const { tech } = req.query;
+            let { tech } = req.query;
+            
+            let spot;
 
-            const spot = await Spot.find({ techs: tech });
+            if(tech){
+                console.log(tech)
+                spot = await Spot.find({ techs: tech });
+            } else {
+                console.log("Tech não informado");
+                spot = await Spot.find({});
+            }
 
             return res.status(200).json({ success: spot });
         } catch (error) {
