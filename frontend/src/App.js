@@ -15,9 +15,10 @@ function App() {
     //Não faça seu padrão de enviar pra outra tela
     event.preventDefault();
 
-    const response = await api.post('/sessions', { email:email });
+    const response = await api.post('/session', { email:email });
+    const { _id } = response.data;
 
-    console.log(response);
+    localStorage.setItem('user', _id);
 
   }
 
