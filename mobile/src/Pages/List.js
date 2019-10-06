@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, AsyncStorage, Text, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { SafeAreaView, AsyncStorage, Text, KeyboardAvoidingView, StyleSheet, Image } from 'react-native';
+
+import SpotList from '../components/SpotList';
+
+import logo from '../assets/logo.png';
 
 export default function List() {
 
@@ -15,16 +19,21 @@ export default function List() {
   },[])
 
   return (
-    <KeyboardAvoidingView style={styles.container}>
-      <Text>{techs}</Text>
-    </KeyboardAvoidingView>
+    <SafeAreaView style={styles.container}>
+      <Image style={styles.logo} source={logo} />
+      <SpotList></SpotList>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  },
+  logo: {
+    height: 32,
+    resizeMode: 'contain',
+    alignSelf: 'center',
+    marginTop: 40
   }
 });
