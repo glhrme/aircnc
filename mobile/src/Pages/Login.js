@@ -12,7 +12,7 @@ export default function Login({ navigation }) {
             if(user){
                 console.log(user);
                 return navigation.navigate('List');
-            }
+             }
         });
     },[/*Aqui vai uma variável para monitorar*/]);
 
