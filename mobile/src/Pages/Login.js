@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, KeyboardAvoidingView, AsyncStorage, Platform, Text, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 import api from '../services/api';
 import logo from '../assets/logo.png';
 
 export default function Login({ navigation }) {
+
+    //useEffect é uma função que é executada sempre que entrar na tela ou quando a variável estiver preenchida, e se a variável mudar de valor, ele executa novamente...
+    useEffect(()=>{
+        AsyncStorage.getItem('user').then(user => {
+            if(user){
+                console.log(user);
+                return navigation.navigate('List');
+            }
+        });
+    },[/*Aqui vai uma variável para monitorar*/]);
 
     const [ email, setEmail ] = useState('');
     const [ techs, setTechs ] = useState('');
