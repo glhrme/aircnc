@@ -10,7 +10,7 @@ export default function Login({ navigation }) {
     useEffect(()=>{
         AsyncStorage.getItem('user').then(user => {
             if(user){
-                console.log(user);
+                //console.log(user);
                 return navigation.navigate('List');
              }
         });
