@@ -7,7 +7,7 @@ import api from '../../services/api';
 import './styles.css';
 import camera from '../../assets/camera.svg';
 
-export default function NewSpot(){
+export default function NewSpot({ history }){
 
     const [company, setCompany ] = useState('');
     const [techs, setTechs ] = useState('');
@@ -31,9 +31,11 @@ export default function NewSpot(){
         data.append('techs', techs);
         data.append('price', price);
 
-        api.post('/spots', data, {
+        await api.post('/spots', data, {
             headers: { user_id }
         });
+
+        history.push('/dashboard');
     }
 
     return (
