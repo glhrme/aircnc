@@ -10,14 +10,12 @@ module.exports = {
             let spot;
 
             if(tech){
-                console.log(tech)
                 spot = await Spot.find({ techs: tech });
             } else {
-                console.log("Tech não informado");
                 spot = await Spot.find({});
             }
 
-            return res.status(200).json({ success: spot });
+            return res.status(200).json(spot);
         } catch (error) {
             return res.status(500).json({ error: error });
         }
