@@ -22,3 +22,5 @@ backend/node_modules/
 
 backend/src/config/database.json
 
+
+mobile/my-release-key.keystore

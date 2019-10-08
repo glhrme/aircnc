@@ -5,7 +5,6 @@
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
-      "ios",
       "android",
       "web"
     ],
@@ -15,16 +14,16 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#c333"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/*"
     ],
-    "ios": {
-      "supportsTablet": true
+    "android": {
+      "package": "com.guisantos.aircnc"
     }
   }
 }
