@@ -18,3 +18,10 @@ frontend/node_modules/
 backend/uploads/
 
 Img Teste/
+
+
+backend/node_modules/
+
+backend/src/config/database.json
+
+frontend/
