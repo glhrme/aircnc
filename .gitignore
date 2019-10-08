@@ -4,3 +4,5 @@ backend/node_modules/
 backend/src/config/database.json
 
 frontend/
+
+backend/
