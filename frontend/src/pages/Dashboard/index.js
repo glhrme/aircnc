@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import socketio from 'socket.io-client';
+import {urlBackend} from '../../config/cfg.json';
 
 //CSS
 import './styles.css';
@@ -8,6 +10,15 @@ import './styles.css';
 export default function Dashboard(){
     const [ user, setUser ] = useState('')
     const [ spots, setSpots ] = useState([]);
+
+    useEffect(()=>{
+        
+        const user_id = localStorage.getItem('user');
+        const socket = socketio(urlBackend,{
+            query: { user_id }
+        });
+
+    },[]);
 
     useEffect(
         ()=>{
