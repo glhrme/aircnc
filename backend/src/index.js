@@ -27,6 +27,6 @@ try{
     console.log(error);
 }
 
-app.listen(2000, ()=>{
+app.listen(process.env.PORT || 2000, ()=>{
     console.log("Aplicação sendo executada");
 });

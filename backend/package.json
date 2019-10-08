@@ -4,6 +4,7 @@
   "description": "Aplicação construída no primeiro dia de aulas da OmniStack 9",
   "main": "src/index.js",
   "scripts": {
+    "start":"node src/index.js",
     "dev": "nodemon src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
