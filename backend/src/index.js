@@ -4,8 +4,12 @@ const {username, password} = require('./config/database.json');
 const routes = require('./routes');
 const cors = require('cors');
 const path = require('path');
+const socketio = require('socket.io');
+const http = require('http');
 
 const app = express();
+const server = http.Server(app);
+const io = socketio(server);
 
 /*
     req.query = acessar os query params / parametros url no get
@@ -27,6 +31,6 @@ try{
     console.log(error);
 }
 
-app.listen(2000, ()=>{
+server.listen(process.env.PORT || 2000, ()=>{
     console.log("Aplicação sendo executada");
 });

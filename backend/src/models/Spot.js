@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const urlBackend = require('../config/cfg.json');
 const SpotSchema = new mongoose.Schema({
     thumbnail: String,
     company: String,
@@ -19,7 +19,7 @@ const SpotSchema = new mongoose.Schema({
 
 //Fazendo um virtual para retornar a URL
 SpotSchema.virtual('thumbnail_url').get(function(){
-    return `http://localhost:2000/files/${this.thumbnail}`
+    return `${urlBackend}/files/${this.thumbnail}`
 });
 
 module.exports = mongoose.model('Spot',SpotSchema);
