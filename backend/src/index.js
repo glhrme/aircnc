@@ -11,6 +11,30 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
+try{
+    mongoose.connect('mongodb://'+username+':'+password+'@memepi-shard-00-00-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-01-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-02-w9wrm.gcp.mongodb.net:27017/semana9?ssl=true&replicaSet=memepi-shard-0&authSource=admin&retryWrites=true&w=majority',{
+        useNewUrlParser:true,
+        useUnifiedTopology: true
+    });
+} catch (error) {
+    console.log(error);
+}
+
+const connectedUsers = {};
+
+io.on('connection', socket => {
+    const { user_id } = socket.handshake.query;
+    connectedUsers[user_id] = socket.id;
+});
+
+
+app.use((req, res, next)=>{
+    req.io = io;
+    req.connectedUsers = connectedUsers;
+    return next();
+});
+
+
 /*
     req.query = acessar os query params / parametros url no get
     req.params = parametros url no post e put
@@ -22,14 +46,7 @@ app.use(express.json());
 app.use('/files', express.static(path.resolve(__dirname,'..','uploads')));
 app.use(routes);
 
-try{
-    mongoose.connect('mongodb://'+username+':'+password+'@memepi-shard-00-00-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-01-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-02-w9wrm.gcp.mongodb.net:27017/semana9?ssl=true&replicaSet=memepi-shard-0&authSource=admin&retryWrites=true&w=majority',{
-        useNewUrlParser:true,
-        useUnifiedTopology: true
-    });
-} catch (error) {
-    console.log(error);
-}
+
 
 server.listen(process.env.PORT || 2000, ()=>{
     console.log("Aplicação sendo executada");
