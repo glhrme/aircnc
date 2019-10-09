@@ -18,6 +18,10 @@ export default function Dashboard(){
             query: { user_id }
         });
 
+        socket.on('booking_request', data => {
+            console.log(data);
+        })
+
     },[]);
 
     useEffect(
@@ -30,7 +34,7 @@ export default function Dashboard(){
                     }
                 });
 
-                console.log(response.data.success);
+                //console.log(response.data.success);
                 //Passando os resultados para os spots
                 setSpots(response.data.success);
                 //Buscando e setando email
