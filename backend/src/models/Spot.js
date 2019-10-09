@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const urlBackend = require('../config/cfg.json');
+const {urlBackend} = require('../config/cfg.json');
 const SpotSchema = new mongoose.Schema({
     thumbnail: String,
     company: String,
