@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const {username, password} = require('./config/database.json');
+const {cloud, local} = require('./config/database.json');
 const routes = require('./routes');
 const cors = require('cors');
 const path = require('path');
@@ -11,8 +11,10 @@ const app = express();
 const server = http.Server(app);
 const io = socketio(server);
 
+//Config está no Google Drive
+
 try{
-    mongoose.connect('mongodb://'+username+':'+password+'@memepi-shard-00-00-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-01-w9wrm.gcp.mongodb.net:27017,memepi-shard-00-02-w9wrm.gcp.mongodb.net:27017/semana9?ssl=true&replicaSet=memepi-shard-0&authSource=admin&retryWrites=true&w=majority',{
+    mongoose.connect(local,{
         useNewUrlParser:true,
         useUnifiedTopology: true
     });
