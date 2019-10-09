@@ -6,3 +6,5 @@ backend/src/config/database.json
 frontend/
 
 backend/
+
+mobile/src/config/cfg.json
